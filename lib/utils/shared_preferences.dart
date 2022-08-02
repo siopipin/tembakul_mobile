@@ -11,14 +11,28 @@ class SharedData {
     await prefs.setString('token', token);
   }
 
-  Future<String> showId() async {
+  Future<bool> removeLoginData() async {
     final SharedPreferences prefs = await _prefs;
-    return prefs.getString('id') ?? "";
+    bool success;
+    try {
+      await prefs.remove('id');
+      await prefs.remove('nama');
+      await prefs.remove('token');
+      success = true;
+    } catch (e) {
+      success = false;
+    }
+    return success;
   }
 
-  Future<String> showNama() async {
+  Future<dynamic> showId() async {
     final SharedPreferences prefs = await _prefs;
-    return prefs.getString('nama') ?? "-";
+    return prefs.getString('id');
+  }
+
+  Future<dynamic> showNama() async {
+    final SharedPreferences prefs = await _prefs;
+    return prefs.getString('nama');
   }
 
   Future<dynamic> showToken() async {

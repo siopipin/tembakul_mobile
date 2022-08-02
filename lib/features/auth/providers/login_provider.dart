@@ -56,12 +56,6 @@ class LoginProvider extends ChangeNotifier {
             nama: dataLogin.data!.name!,
             token: dataLogin.data!.token!);
 
-        var a = await SharedData().showId();
-        var b = await SharedData().showNama();
-        var c = await SharedData().showToken();
-
-        print('Berhasil simpan: $a, $b dan token: $c');
-
         break;
       case 404:
         setLoginState = LoginState.Error;

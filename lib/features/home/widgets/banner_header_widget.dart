@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/features/auth/login_screen.dart';
+import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
+import 'package:tembakul_mobile/features/home/widgets/login_logout_widget.dart';
 import 'package:tembakul_mobile/utils/config.dart';
+import 'package:provider/provider.dart';
 
 class BannerHeaderWidget extends StatefulWidget {
   const BannerHeaderWidget({Key? key}) : super(key: key);
@@ -12,6 +15,7 @@ class BannerHeaderWidget extends StatefulWidget {
 class _BannerHeaderWidgetState extends State<BannerHeaderWidget> {
   @override
   Widget build(BuildContext context) {
+    final watchHome = context.watch<HomeProvider>();
     return Container(
       padding: EdgeInsets.all(Config().padding),
       decoration: BoxDecoration(
@@ -37,7 +41,7 @@ class _BannerHeaderWidgetState extends State<BannerHeaderWidget> {
                           fontSize: Config().fontSizeH1)),
                   SizedBox(height: Config().padding / 4),
                   Text(
-                    'di Tembakul Apps',
+                    watchHome.isLoggedIn ? watchHome.name : 'di Tembakul Apps',
                     style: TextStyle(color: Config().fontSecondary),
                   )
                 ],
@@ -52,28 +56,7 @@ class _BannerHeaderWidgetState extends State<BannerHeaderWidget> {
                     ),
                   ),
                   SizedBox(width: Config().padding - 6),
-                  GestureDetector(
-                    onTap: (() => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const LoginScreen())))),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          color: Config().colorItem,
-                          size: 20,
-                        ),
-                        Text(
-                          'Masuk',
-                          style: TextStyle(
-                              color: Config().fontPrimaryWhite,
-                              fontSize: Config().fontSizeTiny),
-                        )
-                      ],
-                    ),
-                  )
+                  LoginLogoutWidget()
                 ],
               )
             ],
