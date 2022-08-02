@@ -80,7 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
           //action
           SizedBox(height: Config().padding),
-          ButtonWidget(text: "Registrasi"),
+          ButtonWidget(text: "Registrasi", function: () {}),
           SizedBox(height: Config().padding),
           Align(
             alignment: Alignment.center,
@@ -89,10 +89,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextSpan(
                   text: " Masuk ke Aplikasi Tembakul!",
                   recognizer: TapGestureRecognizer()
-                    ..onTap = () => Navigator.push(
+                    ..onTap = () => Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => const LoginScreen()))),
+                            builder: (context) => const LoginScreen()),
+                        (route) => false),
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Config().fontBlue))
             ])),

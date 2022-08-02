@@ -2,14 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 
 class MenuItemWidget extends StatelessWidget {
-  final int? index;
   final String? title;
   final IconData? icon;
-  const MenuItemWidget(
-      {Key? key,
-      @required this.title,
-      @required this.icon,
-      @required this.index})
+  const MenuItemWidget({Key? key, @required this.title, @required this.icon})
       : super(key: key);
 
   @override
