@@ -6,6 +6,7 @@ import 'package:tembakul_mobile/features/auth/providers/register_provider.dart';
 import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
+import 'package:tembakul_mobile/features/pengajuan/providers/pengajuan_providers.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 
 void main() {
@@ -14,6 +15,7 @@ void main() {
     ChangeNotifierProvider(create: (_) => LoginProvider()),
     ChangeNotifierProvider(create: (_) => RegisterProvider()),
     ChangeNotifierProvider(create: (_) => HomeProvider()),
+    ChangeNotifierProvider(create: (_) => PengajuanProvider()),
   ], child: const MyApp()));
 }
 

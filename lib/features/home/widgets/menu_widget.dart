@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_item_widget.dart';
+import 'package:tembakul_mobile/features/pengajuan/pengajuan_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/widgets/dialog_widget.dart';
@@ -27,14 +28,17 @@ class MenuWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (watchHome.isLoggedIn) {
-                      print('klik registrasi');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const PengajuanScreen())));
                     } else {
                       showCustomDialog(context);
                     }
                   },
                   child: MenuItemWidget(
                     icon: Icons.app_registration,
-                    title: 'Pendaftaran',
+                    title: 'Pengajuan',
                   ),
                 ),
                 GestureDetector(

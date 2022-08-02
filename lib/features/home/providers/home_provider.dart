@@ -24,7 +24,7 @@ class HomeProvider extends ChangeNotifier {
   }
 
   userInfo() async {
-    data.showToken().then((value) {
+    await data.showToken().then((value) {
       if (value == null) {
         setIsLoggedIn = false;
       } else {
@@ -32,7 +32,7 @@ class HomeProvider extends ChangeNotifier {
       }
     });
 
-    data.showNama().then((value) {
+    await data.showNama().then((value) {
       if (value == null) {
         setName = "User";
       } else {

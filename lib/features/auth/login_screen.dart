@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tembakul_mobile/features/auth/providers/login_provider.dart';
 import 'package:tembakul_mobile/features/auth/register_screen.dart';
 import 'package:tembakul_mobile/features/auth/widgets/header_banner_widget.dart';
-import 'package:tembakul_mobile/features/auth/widgets/textfield_widget.dart';
+import 'package:tembakul_mobile/widgets/textfield_widget.dart';
 import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:tembakul_mobile/widgets/button_widget.dart';

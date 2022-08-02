@@ -4,13 +4,18 @@ import 'package:tembakul_mobile/utils/config.dart';
 class ButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback? function;
-  const ButtonWidget({Key? key, required this.text, this.function})
+  final double width;
+  const ButtonWidget(
+      {Key? key,
+      required this.text,
+      required this.function,
+      this.width = double.infinity})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: width,
       height: 50,
       child: ElevatedButton(
         onPressed: function!,

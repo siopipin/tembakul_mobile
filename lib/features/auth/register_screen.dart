@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/features/auth/login_screen.dart';
 import 'package:tembakul_mobile/features/auth/providers/register_provider.dart';
 import 'package:tembakul_mobile/features/auth/widgets/header_banner_widget.dart';
-import 'package:tembakul_mobile/features/auth/widgets/textfield_widget.dart';
+import 'package:tembakul_mobile/widgets/textfield_widget.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:tembakul_mobile/widgets/button_widget.dart';
 import 'package:tembakul_mobile/widgets/title_section_widget.dart';
