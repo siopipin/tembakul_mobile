@@ -10,7 +10,7 @@ class SlidesItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: "http://localhost:3002/images/news/$url",
+      imageUrl: "${Config().urlNewsImg}$url",
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(Config().padding),
