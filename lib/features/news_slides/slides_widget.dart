@@ -22,8 +22,8 @@ class _SlidesWidgetState extends State<SlidesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final newsWatch = context.watch<NewsProvider>();
-    switch (newsWatch.newsState) {
+    final watchNew = context.watch<NewsProvider>();
+    switch (watchNew.newsState) {
       case NewsState.Error:
         return const NotFoundWidget();
       case NewsState.Loading:
@@ -33,20 +33,19 @@ class _SlidesWidgetState extends State<SlidesWidget> {
               height: 200, width: MediaQuery.of(context).size.width),
         );
       case NewsState.Loaded:
-        if (newsWatch.dataNews.data!.isEmpty) {
+        if (watchNew.dataNews.data!.isEmpty) {
           return const NotFoundWidget(
             msg: "Banner Tidak Tersedia!",
           );
         } else {
-          return Container(
-            margin: const EdgeInsets.symmetric(vertical: 20.0),
+          return SizedBox(
             height: 200.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
                 SizedBox(width: Config().padding),
                 Row(
-                  children: newsWatch.dataNews.data!.map((e) {
+                  children: watchNew.dataNews.data!.map((e) {
                     return Row(
                       children: [
                         e.slides == 1

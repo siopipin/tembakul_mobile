@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/banner_header_widget.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_widget.dart';
-import 'package:tembakul_mobile/features/home/widgets/title_section_widget.dart';
+import 'package:tembakul_mobile/widgets/title_section_widget.dart';
 import 'package:tembakul_mobile/features/news_slides/news_widget.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/slides_widget.dart';
+import 'package:tembakul_mobile/utils/config.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -27,23 +28,33 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Scrollbar(
         child: ListView(
           padding: EdgeInsets.zero,
-          children: const [
+          children: [
             //header banner
-            BannerHeaderWidget(),
+            const BannerHeaderWidget(),
 
             //menu
-            TitleSectionWidget(
-              title: 'Menu',
-              icon: Icons.api_sharp,
+            SizedBox(height: Config().padding),
+            Padding(
+              padding: EdgeInsets.only(left: Config().padding),
+              child: const TitleSectionWidget(
+                title: 'Menu',
+                icon: Icons.api_sharp,
+              ),
             ),
-            MenuWidget(),
+            const MenuWidget(),
 
             //banner
-            SlidesWidget(),
+            const SlidesWidget(),
 
             //news
-            TitleSectionWidget(title: "Berita", icon: Icons.newspaper),
-            NewsWidget()
+            SizedBox(height: Config().padding),
+            Padding(
+              padding: EdgeInsets.only(left: Config().padding),
+              child: const TitleSectionWidget(
+                  title: "Berita", icon: Icons.newspaper),
+            ),
+
+            const NewsWidget()
           ],
         ),
       ),

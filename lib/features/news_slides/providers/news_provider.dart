@@ -32,7 +32,7 @@ class NewsProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future fetchNewsList() async {
+  Future<void> fetchNewsList() async {
     setNewsState = NewsState.Loading;
     final response = await _helper.get(url: 'news');
     switch (response[0]) {

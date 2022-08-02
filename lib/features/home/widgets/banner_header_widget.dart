@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tembakul_mobile/features/auth/login_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 
 class BannerHeaderWidget extends StatefulWidget {
@@ -41,12 +42,39 @@ class _BannerHeaderWidgetState extends State<BannerHeaderWidget> {
                   )
                 ],
               ),
-              CircleAvatar(
-                backgroundColor: Config().colorSecondary,
-                child: Icon(
-                  Icons.apps,
-                  color: Config().colorItem,
-                ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Config().colorSecondary,
+                    child: Icon(
+                      Icons.apps,
+                      color: Config().colorItem,
+                    ),
+                  ),
+                  SizedBox(width: Config().padding - 6),
+                  GestureDetector(
+                    onTap: (() => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const LoginScreen())))),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Config().colorItem,
+                          size: 20,
+                        ),
+                        Text(
+                          'Masuk',
+                          style: TextStyle(
+                              color: Config().fontPrimaryWhite,
+                              fontSize: Config().fontSizeTiny),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               )
             ],
           ),

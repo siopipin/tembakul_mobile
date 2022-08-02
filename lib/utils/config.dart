@@ -1,8 +1,11 @@
 // ignore_for_file: unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Config {
+  final titleApp = "TEMBAKUL";
+
   //Production
   // final urlApi = "https://tembakul.rakadev.my.id/api/mobile/";
   // final urlUserImg = "https://tembakul.rakadev.my.id/images/users/";
@@ -33,4 +36,7 @@ class Config {
   final fontSizeH2 = 16.0;
   final fontSizeH3 = 14.0;
   final fontSizeTiny = 12.0;
+
+  //date format
+  final dateFormat = DateFormat('EEE, dd-MM-yyyy');
 }

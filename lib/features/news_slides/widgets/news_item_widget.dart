@@ -63,7 +63,7 @@ class NewsItemWidget extends StatelessWidget {
                     fontSize: Config().fontSizeH2, fontWeight: FontWeight.bold),
               ),
               Text(
-                date,
+                Config().dateFormat.format(DateTime.parse(date)),
                 style: TextStyle(
                     fontSize: Config().fontSizeTiny,
                     fontWeight: FontWeight.w400),

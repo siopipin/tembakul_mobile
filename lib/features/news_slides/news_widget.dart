@@ -16,8 +16,8 @@ class NewsWidget extends StatefulWidget {
 class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
-    final newsWatch = context.watch<NewsProvider>();
-    switch (newsWatch.newsState) {
+    final watchNews = context.watch<NewsProvider>();
+    switch (watchNews.newsState) {
       case NewsState.Error:
         return const NotFoundWidget();
       case NewsState.Loading:
@@ -27,7 +27,7 @@ class _NewsWidgetState extends State<NewsWidget> {
               height: 200, width: MediaQuery.of(context).size.width),
         );
       case NewsState.Loaded:
-        if (newsWatch.dataNews.data!.isEmpty) {
+        if (watchNews.dataNews.data!.isEmpty) {
           return const NotFoundWidget(
             msg: "Berita Tidak Tersedia!",
           );
@@ -35,7 +35,7 @@ class _NewsWidgetState extends State<NewsWidget> {
           return Container(
               padding: EdgeInsets.symmetric(horizontal: Config().padding),
               child: Column(
-                children: newsWatch.dataNews.data!.map((e) {
+                children: watchNews.dataNews.data!.map((e) {
                   return Column(
                     children: [
                       e.slides == 0

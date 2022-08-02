@@ -18,7 +18,7 @@ class MenuItemWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          padding: EdgeInsets.all(Config().padding),
+          padding: EdgeInsets.all(Config().padding + 2),
           decoration: BoxDecoration(
               color: Config().colorSecondary,
               borderRadius: BorderRadius.circular(Config().padding / 2)),

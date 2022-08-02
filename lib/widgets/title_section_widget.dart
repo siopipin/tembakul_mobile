@@ -10,9 +10,8 @@ class TitleSectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left: Config().padding),
-        margin: EdgeInsets.only(
-            top: Config().padding * 2, bottom: Config().padding),
+        // padding: EdgeInsets.only(left: Config().padding),
+        margin: EdgeInsets.only(bottom: Config().padding),
         child: Row(
           children: [
             Container(
