@@ -1,64 +1,63 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
-import 'package:tembakul_mobile/features/perusahaan/providers/perusahaan_provider.dart';
-import 'package:tembakul_mobile/features/perusahaan/widgets/perusahaan_item_widget.dart';
+import 'package:tembakul_mobile/features/unggulan/providers/unggulan_provider.dart';
+import 'package:tembakul_mobile/features/unggulan/widgets/unggulan_item_widget.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:tembakul_mobile/widgets/error_widget.dart';
 import 'package:tembakul_mobile/widgets/header_widget.dart';
 import 'package:tembakul_mobile/widgets/shimmer_widget.dart';
 
-class PerusahaanScreen extends StatefulWidget {
-  const PerusahaanScreen({Key? key}) : super(key: key);
+class UnggulanScreen extends StatefulWidget {
+  const UnggulanScreen({Key? key}) : super(key: key);
 
   @override
-  State<PerusahaanScreen> createState() => _PerusahaanScreenState();
+  State<UnggulanScreen> createState() => _UnggulanScreenState();
 }
 
-class _PerusahaanScreenState extends State<PerusahaanScreen> {
+class _UnggulanScreenState extends State<UnggulanScreen> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => context.read<PerusahaanProvider>().initial());
+    Future.microtask(() => context.read<UnggulanProvider>().initial());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Perusahaan"),
+        title: const Text("Program Unggulan"),
         elevation: 0,
       ),
       body: Scrollbar(
           child: RefreshIndicator(
         onRefresh: () async {
-          await context.read<PenerimaProvider>().initial();
+          await context.read<UnggulanProvider>().initial();
         },
         child: ListView(padding: EdgeInsets.zero, children: [
           //header
           const HeaderCustomeWidget(
-              title: 'Data Perusahaan',
-              desc: 'List Data Perusahaan',
-              icon: Icons.home_work_outlined),
+              title: 'Program Unggulan',
+              desc: 'List Program Unggulan',
+              icon: Icons.privacy_tip_rounded),
 
           //body
           SizedBox(height: Config().padding),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: Config().padding),
-            child: listPerusahaan(context),
+            child: listUnggulan(context),
           )
         ]),
       )),
     );
   }
 
-  listPerusahaan(BuildContext context) {
-    final watchPerusahaan = context.watch<PerusahaanProvider>();
+  listUnggulan(BuildContext context) {
+    final watchUnggulan = context.watch<UnggulanProvider>();
 
-    switch (watchPerusahaan.statePerusahaan) {
-      case StatePerusahaan.error:
+    switch (watchUnggulan.stateUnggulan) {
+      case StateUnggulan.error:
         return const NotFoundWidget();
-      case StatePerusahaan.loading:
+      case StateUnggulan.loading:
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: Config().padding),
           child: Column(
@@ -71,13 +70,13 @@ class _PerusahaanScreenState extends State<PerusahaanScreen> {
                             width: MediaQuery.of(context).size.width),
                       ))),
         );
-      case StatePerusahaan.loaded:
-        if (watchPerusahaan.dataPerusahaan.data!.isEmpty) {
+      case StateUnggulan.loaded:
+        if (watchUnggulan.dataUnggulan.data!.isEmpty) {
           return const NotFoundWidget(
-            msg: "List Perusahaan Tidak Tersedia!",
+            msg: "List Program Unggulan Tidak Tersedia!",
           );
         } else {
-          return const PerusahaanItemWidget();
+          return const UnggulanItemWidget();
         }
       default:
         return Container();

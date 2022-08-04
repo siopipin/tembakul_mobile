@@ -10,6 +10,7 @@ import 'package:tembakul_mobile/features/penerima/providers/penerima_detail_prov
 import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
 import 'package:tembakul_mobile/features/pengajuan/providers/pengajuan_providers.dart';
 import 'package:tembakul_mobile/features/perusahaan/providers/perusahaan_provider.dart';
+import 'package:tembakul_mobile/features/unggulan/providers/unggulan_provider.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:tembakul_mobile/utils/global_provider.dart';
 
@@ -24,6 +25,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => PenerimaProvider()),
     ChangeNotifierProvider(create: (_) => PenerimaDetailProvider()),
     ChangeNotifierProvider(create: (_) => PerusahaanProvider()),
+    ChangeNotifierProvider(create: (_) => UnggulanProvider()),
   ], child: const MyApp()));
 }
 
