@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/features/auth/login_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/login_logout_widget.dart';
+import 'package:tembakul_mobile/features/lokasi/lokasi_poktan.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:provider/provider.dart';
 
@@ -63,24 +64,32 @@ class _BannerHeaderWidgetState extends State<HomeHeaderWidget> {
           ),
           SizedBox(height: Config().padding * 2),
           //Seachbar
-          TextField(
-            textAlign: TextAlign.left,
-            // controller: searchCtrl,
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              hintText: 'Cari PokTan',
-              hintStyle: TextStyle(fontSize: Config().fontSizeH2),
-              prefixIcon: const Icon(Icons.search),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
+          GestureDetector(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const LokasiPokTan()))),
+            child: TextField(
+              textAlign: TextAlign.left,
+              // controller: searchCtrl,
+              keyboardType: TextInputType.text,
+              enabled: false,
+
+              decoration: InputDecoration(
+                hintText: 'Cari PokTan',
+                hintStyle: TextStyle(fontSize: Config().fontSizeH2),
+                prefixIcon: const Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: const BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
                 ),
+                filled: true,
+                contentPadding: const EdgeInsets.all(16),
+                fillColor: Config().colorItem,
               ),
-              filled: true,
-              contentPadding: const EdgeInsets.all(16),
-              fillColor: Config().colorItem,
             ),
           ),
           SizedBox(

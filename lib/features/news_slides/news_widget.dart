@@ -39,11 +39,49 @@ class _NewsWidgetState extends State<NewsWidget> {
                   return Column(
                     children: [
                       e.slides == 0
-                          ? NewsItemWidget(
-                              url: e.img!,
-                              title: e.title!,
-                              date: e.dateCreated!,
-                              description: e.description!,
+                          ? GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            Config().padding)),
+                                    builder: ((context) => Container(
+                                          padding:
+                                              EdgeInsets.all(Config().padding),
+                                          child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                //tanggal dan status
+
+                                                //Header
+                                                Text(
+                                                  e.title ?? '-',
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        Config().fontSizeH1,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                    height:
+                                                        Config().padding / 2),
+                                                Text(
+                                                    'Publish at ${Config().dateFormat.format(DateTime.parse(e.dateCreated!))}'),
+
+                                                //Jenis Bantuan
+                                                Divider(),
+                                                Text(e.description ?? '-'),
+                                              ]),
+                                        )));
+                              },
+                              child: NewsItemWidget(
+                                url: e.img!,
+                                title: e.title!,
+                                date: e.dateCreated!,
+                                description: e.description!,
+                              ),
                             )
                           : Container(),
                       SizedBox(
