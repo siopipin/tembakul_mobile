@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tembakul_mobile/features/penerima/penerima_detail_screen.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 

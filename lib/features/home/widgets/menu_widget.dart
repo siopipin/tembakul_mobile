@@ -5,6 +5,7 @@ import 'package:tembakul_mobile/features/home/widgets/menu_item_widget.dart';
 import 'package:tembakul_mobile/features/lokasi/lokasi_poktan.dart';
 import 'package:tembakul_mobile/features/penerima/penerima_screen.dart';
 import 'package:tembakul_mobile/features/pengajuan/pengajuan_screen.dart';
+import 'package:tembakul_mobile/features/perusahaan/perusahaan_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/widgets/dialog_widget.dart';
@@ -63,7 +64,11 @@ class MenuWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (watchHome.isLoggedIn) {
-                      Fluttertoast.showToast(msg: 'Dalam Pengembangan');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) =>
+                                  const PerusahaanScreen())));
                     } else {
                       showCustomDialog(context);
                     }

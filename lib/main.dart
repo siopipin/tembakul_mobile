@@ -9,6 +9,7 @@ import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dar
 import 'package:tembakul_mobile/features/penerima/providers/penerima_detail_provider.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
 import 'package:tembakul_mobile/features/pengajuan/providers/pengajuan_providers.dart';
+import 'package:tembakul_mobile/features/perusahaan/providers/perusahaan_provider.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:tembakul_mobile/utils/global_provider.dart';
 
@@ -22,6 +23,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => PengajuanProvider()),
     ChangeNotifierProvider(create: (_) => PenerimaProvider()),
     ChangeNotifierProvider(create: (_) => PenerimaDetailProvider()),
+    ChangeNotifierProvider(create: (_) => PerusahaanProvider()),
   ], child: const MyApp()));
 }
 
