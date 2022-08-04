@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tembakul_mobile/features/auth/login_screen.dart';
 import 'package:tembakul_mobile/features/auth/providers/register_provider.dart';
 import 'package:tembakul_mobile/features/auth/widgets/home_header_widget.dart';
@@ -27,17 +28,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
         children: [
           SizedBox(height: Config().padding * 5),
           //header banner
-          LoginHeaderWidget(),
+          const LoginHeaderWidget(),
 
           //form
           SizedBox(height: Config().padding * 2),
-          TitleSectionWidget(title: "Registrasi", icon: Icons.app_registration),
+          const TitleSectionWidget(
+              title: "Registrasi", icon: Icons.app_registration),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
                   padding: EdgeInsets.only(right: Config().padding / 2),
-                  child: Icon(Icons.person_pin_rounded)),
+                  child: const Icon(Icons.person_pin_rounded)),
               Expanded(
                   child: TextFieldWidget(
                 ctrl: watchRegister.ctrlNama,
@@ -52,7 +54,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               Padding(
                   padding: EdgeInsets.only(right: Config().padding / 2),
-                  child: Icon(Icons.phone_android_outlined)),
+                  child: const Icon(Icons.phone_android_outlined)),
               Expanded(
                   child: TextFieldWidget(
                 ctrl: watchRegister.ctrlHP,
@@ -67,7 +69,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             children: [
               Padding(
                   padding: EdgeInsets.only(right: Config().padding / 2),
-                  child: Icon(Icons.key)),
+                  child: const Icon(Icons.key)),
               Expanded(
                   child: TextFieldWidget(
                 ctrl: watchRegister.ctrlPassword,
@@ -80,12 +82,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
           //action
           SizedBox(height: Config().padding),
-          ButtonWidget(text: "Registrasi", function: () {}),
+          ButtonWidget(
+              text: "Registrasi",
+              function: () async {
+                if (watchRegister.ctrlHP.text.isEmpty ||
+                    watchRegister.ctrlNama.text.isEmpty ||
+                    watchRegister.ctrlPassword.text.isEmpty) {
+                  Fluttertoast.showToast(
+                      msg: 'HP, Nama dan Password tidak boleh kosong!');
+                } else {
+                  await watchRegister.postRegister(
+                      hp: watchRegister.ctrlHP.text,
+                      nama: watchRegister.ctrlNama.text,
+                      password: watchRegister.ctrlPassword.text);
+                  //Jika login berhasil
+                  if (watchRegister.stateRegister == StateRegister.loaded) {
+                    // ignore: use_build_context_synchronously
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                        (route) => false);
+                  }
+                }
+              }),
           SizedBox(height: Config().padding),
           Align(
             alignment: Alignment.center,
             child: Text.rich(TextSpan(children: [
-              TextSpan(text: "Sudah memiliki akun?"),
+              const TextSpan(text: "Sudah memiliki akun?"),
               TextSpan(
                   text: " Masuk ke Aplikasi Tembakul!",
                   recognizer: TapGestureRecognizer()

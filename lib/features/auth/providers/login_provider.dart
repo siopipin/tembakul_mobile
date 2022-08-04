@@ -11,6 +11,8 @@ enum LoginState { Initial, Loading, Loaded, Null, Error }
 
 class LoginProvider extends ChangeNotifier {
   initial() {
+    ctrlHP.clear();
+    ctrlPassword.clear();
     setLoginState = LoginState.Initial;
   }
 

@@ -7,16 +7,16 @@ class Config {
   final titleApp = "TEMBAKUL";
 
   //Production
-  // final urlApi = "https://tembakul.rakadev.my.id/api/mobile/";
-  // final urlUserImg = "https://tembakul.rakadev.my.id/images/users/";
-  // final urlNewsImg = "https://tembakul.rakadev.my.id/images/news/";
-  // final urlAllImg = "https://tembakul.rakadev.my.id/images/all/";
+  final urlApi = "https://tembakul.rakadev.my.id/api/mobile/";
+  final urlUserImg = "https://tembakul.rakadev.my.id/images/users/";
+  final urlNewsImg = "https://tembakul.rakadev.my.id/images/news/";
+  final urlAllImg = "https://tembakul.rakadev.my.id/images/all/";
 
   //Development
-  final urlApi = "http://127.0.0.1:3002/api/mobile/";
-  final urlUserImg = "http://localhost:3002/images/users/";
-  final urlNewsImg = "http://localhost:3002/images/news/";
-  final urlAllImg = "http://localhost:3002/images/all/";
+  // final urlApi = "http://127.0.0.1:3002/api/mobile/";
+  // final urlUserImg = "http://localhost:3002/images/users/";
+  // final urlNewsImg = "http://localhost:3002/images/news/";
+  // final urlAllImg = "http://localhost:3002/images/all/";
 
   final padding = 16.0;
 
