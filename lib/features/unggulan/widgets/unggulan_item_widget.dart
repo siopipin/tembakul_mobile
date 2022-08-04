@@ -33,8 +33,8 @@ class UnggulanItemWidget extends StatelessWidget {
                                       Text(
                                         e.title.toString(),
                                         style: TextStyle(
-                                          fontSize: Config().fontSizeTiny,
-                                          fontStyle: FontStyle.italic,
+                                          fontSize: Config().fontSizeH2,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
 
@@ -43,8 +43,8 @@ class UnggulanItemWidget extends StatelessWidget {
                                       Text(
                                         e.description ?? '-',
                                         style: TextStyle(
-                                          fontSize: Config().fontSizeH2,
-                                          fontWeight: FontWeight.bold,
+                                          fontSize: Config().fontSizeTiny,
+                                          fontStyle: FontStyle.italic,
                                         ),
                                       ),
                                     ]),
