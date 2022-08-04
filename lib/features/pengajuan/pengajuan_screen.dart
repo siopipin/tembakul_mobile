@@ -34,7 +34,7 @@ class _PengajuanScreenState extends State<PengajuanScreen> {
         onRefresh: () async {},
         child: ListView(padding: EdgeInsets.zero, children: [
           //header
-          HeaderWidget(
+          HeaderCustomeWidget(
             title: 'Daftarkan Berkas POLTAK',
             desc: 'Pastikan berkas pengajuan lengkap dan dalam format .pdf',
             icon: Icons.app_registration,

@@ -6,10 +6,18 @@ import 'package:tembakul_mobile/utils/config.dart';
 
 class ApiBaseHelper {
   Client http = Client();
-  Future<dynamic> get({required String url}) async {
+
+  Future<dynamic> get(
+      {required String url, bool needToken = false, String token = ''}) async {
     var responseJson;
     try {
-      final response = await http.get(Uri.parse(Config().urlApi + url));
+      final response = await http.get(Uri.parse(Config().urlApi + url),
+          headers: needToken
+              ? {
+                  'Content-Type': 'application/json',
+                  HttpHeaders.authorizationHeader: 'Barer $token'
+                }
+              : null);
       responseJson = [response.statusCode, response.body];
     } on SocketException {
       responseJson = [null, null];

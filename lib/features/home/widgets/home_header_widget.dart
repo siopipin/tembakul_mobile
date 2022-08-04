@@ -5,14 +5,14 @@ import 'package:tembakul_mobile/features/home/widgets/login_logout_widget.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:provider/provider.dart';
 
-class BannerHeaderWidget extends StatefulWidget {
-  const BannerHeaderWidget({Key? key}) : super(key: key);
+class HomeHeaderWidget extends StatefulWidget {
+  const HomeHeaderWidget({Key? key}) : super(key: key);
 
   @override
-  State<BannerHeaderWidget> createState() => _BannerHeaderWidgetState();
+  State<HomeHeaderWidget> createState() => _BannerHeaderWidgetState();
 }
 
-class _BannerHeaderWidgetState extends State<BannerHeaderWidget> {
+class _BannerHeaderWidgetState extends State<HomeHeaderWidget> {
   @override
   Widget build(BuildContext context) {
     final watchHome = context.watch<HomeProvider>();

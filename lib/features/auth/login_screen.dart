@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tembakul_mobile/features/auth/providers/login_provider.dart';
 import 'package:tembakul_mobile/features/auth/register_screen.dart';
-import 'package:tembakul_mobile/features/auth/widgets/header_banner_widget.dart';
+import 'package:tembakul_mobile/features/auth/widgets/home_header_widget.dart';
 import 'package:tembakul_mobile/widgets/textfield_widget.dart';
 import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
@@ -35,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           SizedBox(height: Config().padding * 5),
           //header banner
-          HeaderBannerWidget(),
+          LoginHeaderWidget(),
 
           //form
           SizedBox(height: Config().padding * 2),

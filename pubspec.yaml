@@ -22,6 +22,11 @@ dependencies:
   shared_preferences: ^2.0.8
   file_picker: ^5.0.1
   mime: ^1.0.1
+  
+  # map
+  flutter_map: any
+  # latlong: ^0.6.1
+  flutter_map_marker_cluster: any
 
 
 dev_dependencies:

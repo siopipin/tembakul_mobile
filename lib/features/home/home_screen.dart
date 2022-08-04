@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
-import 'package:tembakul_mobile/features/home/widgets/banner_header_widget.dart';
+import 'package:tembakul_mobile/features/home/widgets/home_header_widget.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_widget.dart';
 import 'package:tembakul_mobile/widgets/title_section_widget.dart';
 import 'package:tembakul_mobile/features/news_slides/news_widget.dart';
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.zero,
               children: [
                 //header banner
-                const BannerHeaderWidget(),
+                const HomeHeaderWidget(),
 
                 //menu
                 SizedBox(height: Config().padding),

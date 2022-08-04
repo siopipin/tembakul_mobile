@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:tembakul_mobile/utils/config.dart';
 
-class HeaderCustomeWidget extends StatefulWidget {
+class HeaderWithSearchWidget extends StatefulWidget {
   final String title;
   final String desc;
   final IconData icon;
-  const HeaderCustomeWidget({
+  const HeaderWithSearchWidget({
     Key? key,
     required this.title,
     required this.desc,
@@ -14,10 +14,10 @@ class HeaderCustomeWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<HeaderCustomeWidget> createState() => _HeaderWidgetState();
+  State<HeaderWithSearchWidget> createState() => _HeaderWidgetState();
 }
 
-class _HeaderWidgetState extends State<HeaderCustomeWidget> {
+class _HeaderWidgetState extends State<HeaderWithSearchWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,6 +64,28 @@ class _HeaderWidgetState extends State<HeaderCustomeWidget> {
                 ],
               )
             ],
+          ),
+          SizedBox(height: Config().padding * 2),
+          //Seachbar
+          TextField(
+            textAlign: TextAlign.left,
+            // controller: searchCtrl,
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              hintText: 'Cari PokTan',
+              hintStyle: TextStyle(fontSize: Config().fontSizeH2),
+              prefixIcon: const Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: const BorderSide(
+                  width: 0,
+                  style: BorderStyle.none,
+                ),
+              ),
+              filled: true,
+              contentPadding: const EdgeInsets.all(16),
+              fillColor: Config().colorItem,
+            ),
           ),
           SizedBox(height: Config().padding),
         ],

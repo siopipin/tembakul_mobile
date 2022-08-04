@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_item_widget.dart';
+import 'package:tembakul_mobile/features/lokasi/lokasi_poktan.dart';
+import 'package:tembakul_mobile/features/penerima/penerima_screen.dart';
 import 'package:tembakul_mobile/features/pengajuan/pengajuan_screen.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 import 'package:provider/provider.dart';
@@ -44,7 +47,10 @@ class MenuWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (watchHome.isLoggedIn) {
-                      print('klik Data Penerima');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const PenerimaScreen())));
                     } else {
                       showCustomDialog(context);
                     }
@@ -57,7 +63,7 @@ class MenuWidget extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (watchHome.isLoggedIn) {
-                      print('Data Perusahaan');
+                      Fluttertoast.showToast(msg: 'Dalam Pengembangan');
                     } else {
                       showCustomDialog(context);
                     }
@@ -67,17 +73,33 @@ class MenuWidget extends StatelessWidget {
                     title: 'Data\nPerusahaan',
                   ),
                 ),
-                MenuItemWidget(
-                  icon: Icons.location_on,
-                  title: 'Lokasi\nPokTan',
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const LokasiPokTan()))),
+                  child: MenuItemWidget(
+                    icon: Icons.location_on,
+                    title: 'Lokasi\nPokTan',
+                  ),
                 ),
-                MenuItemWidget(
-                  icon: Icons.token_sharp,
-                  title: 'Program\nUnggulan',
+                GestureDetector(
+                  child: MenuItemWidget(
+                    icon: Icons.token_sharp,
+                    title: 'Program\nUnggulan',
+                  ),
+                  onTap: () {
+                    Fluttertoast.showToast(msg: 'Dalam Pengembangan');
+                  },
                 ),
-                MenuItemWidget(
-                  icon: Icons.help,
-                  title: 'FAQ',
+                GestureDetector(
+                  child: MenuItemWidget(
+                    icon: Icons.help,
+                    title: 'FAQ',
+                  ),
+                  onTap: () {
+                    Fluttertoast.showToast(msg: 'Dalam Pengembangan');
+                  },
                 )
               ],
             ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tembakul_mobile/utils/config.dart';
 
-class HeaderBannerWidget extends StatelessWidget {
-  const HeaderBannerWidget({Key? key}) : super(key: key);
+class LoginHeaderWidget extends StatelessWidget {
+  const LoginHeaderWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
