@@ -45,7 +45,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ctrl: watchRegister.ctrlNama,
                 textHint: "Isi Nama Sesuai KTP",
                 textLabel: "Nama",
-                isNumber: true,
               ))
             ],
           ),

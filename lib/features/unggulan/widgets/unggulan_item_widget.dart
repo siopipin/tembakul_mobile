@@ -39,7 +39,7 @@ class UnggulanItemWidget extends StatelessWidget {
                                       ),
 
                                       //Jenis Bantuan
-                                      Divider(),
+                                      const Divider(),
                                       Text(
                                         e.description ?? '-',
                                         style: TextStyle(
