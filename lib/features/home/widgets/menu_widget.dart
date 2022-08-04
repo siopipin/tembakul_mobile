@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tembakul_mobile/features/faq/faq_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_item_widget.dart';
 import 'package:tembakul_mobile/features/lokasi/lokasi_poktan.dart';
@@ -100,13 +101,14 @@ class MenuWidget extends StatelessWidget {
                           builder: ((context) => const UnggulanScreen()))),
                 ),
                 GestureDetector(
-                  child: MenuItemWidget(
+                  child: const MenuItemWidget(
                     icon: Icons.help,
                     title: 'FAQ',
                   ),
-                  onTap: () {
-                    Fluttertoast.showToast(msg: 'Dalam Pengembangan');
-                  },
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const FaqScreen()))),
                 )
               ],
             ),

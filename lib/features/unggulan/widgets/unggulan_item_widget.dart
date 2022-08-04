@@ -55,7 +55,7 @@ class UnggulanItemWidget extends StatelessWidget {
                         //images news
                         CachedNetworkImage(
                           imageUrl:
-                              "${Config().urlAllImg}${e.img ?? 'tembakul'}",
+                              "${Config().urlAllImg}${e.img ?? 'tembakul.jpeg'}",
                           imageBuilder: (context, imageProvider) => Container(
                             height: 100,
                             width: 110,

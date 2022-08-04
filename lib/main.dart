@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/features/auth/providers/login_provider.dart';
 import 'package:tembakul_mobile/features/auth/providers/register_provider.dart';
+import 'package:tembakul_mobile/features/faq/providers/faq_provider.dart';
 import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
@@ -26,6 +27,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => PenerimaDetailProvider()),
     ChangeNotifierProvider(create: (_) => PerusahaanProvider()),
     ChangeNotifierProvider(create: (_) => UnggulanProvider()),
+    ChangeNotifierProvider(create: (_) => FAQProvider()),
   ], child: const MyApp()));
 }
 
