@@ -34,20 +34,15 @@ class _PengajuanScreenState extends State<PengajuanScreen> {
         onRefresh: () async {},
         child: ListView(padding: EdgeInsets.zero, children: [
           //header
-          HeaderCustomeWidget(
-            title: 'Daftarkan Berkas POLTAK',
-            desc: 'Pastikan berkas pengajuan lengkap dan dalam format .pdf',
+          const HeaderCustomeWidget(
+            title: 'Daftarkan Berkas POKTAN',
+            desc: 'Pastikan berkas pengajuan lengkap dan dalam format pdf/doc',
             icon: Icons.app_registration,
           ),
           SizedBox(height: Config().padding),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: Config().padding),
-            child: Column(children: [
-              //form
-              FormPengajuanWidget()
-
-              //action
-            ]),
+            child: Column(children: const [FormPengajuanWidget()]),
           )
 
           //action

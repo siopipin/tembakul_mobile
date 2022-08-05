@@ -17,7 +17,8 @@ class FormPengajuanWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TitleSectionWidget(title: "Informasi", icon: Icons.person_pin_outlined),
+        const TitleSectionWidget(
+            title: "Informasi", icon: Icons.person_pin_outlined),
         SizedBox(height: Config().padding),
         TextFieldCustomWidget(
           textHint: "Nama",
@@ -57,7 +58,7 @@ class FormPengajuanWidget extends StatelessWidget {
               width: 150,
               function: () async {
                 watchPengajuan.setFile = await FilePicker.platform.pickFiles(
-                    type: FileType.custom, allowedExtensions: ['pdf']);
+                    type: FileType.custom, allowedExtensions: ['pdf', 'doc']);
               },
             ),
             Text(

@@ -42,9 +42,9 @@ flutter:
   assets:
     - assets/images/
   fonts:
-    - family: Outfit
+    - family: Lato
       fonts:
-        - asset: assets/fonts/Outfit-Regular.ttf
+        - asset: assets/fonts/Lato-Regular.ttf
 
 
 flutter_icons:

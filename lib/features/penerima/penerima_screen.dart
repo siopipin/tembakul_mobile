@@ -36,8 +36,8 @@ class _PenerimaScreenState extends State<PenerimaScreen> {
         child: ListView(padding: EdgeInsets.zero, children: [
           //header
           const HeaderCustomeWidget(
-              title: 'Data Penerima',
-              desc: 'List PokTan Penerima',
+              title: 'DATA POKTAN',
+              desc: 'List data POKTAN',
               icon: Icons.list_alt_outlined),
 
           //body

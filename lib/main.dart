@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       title: 'Tembakul Apps',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Outfit',
+        fontFamily: 'Lato',
         colorScheme:
             ColorScheme.fromSwatch().copyWith(primary: Config().colorPrimary),
         scaffoldBackgroundColor: Config().colorBg,

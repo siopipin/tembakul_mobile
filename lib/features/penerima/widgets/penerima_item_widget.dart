@@ -30,7 +30,7 @@ class PenerimaItemWidget extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        e.tahunAnggaran.toString(),
+                                        e.tahunAnggaran ?? '',
                                         style: TextStyle(
                                           fontSize: Config().fontSizeTiny,
                                           fontStyle: FontStyle.italic,
@@ -43,15 +43,21 @@ class PenerimaItemWidget extends StatelessWidget {
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       Config().padding / 3),
-                                              color: Config().colorPrimary),
+                                              color: e.status == 1
+                                                  ? Config().colorPrimary
+                                                  : e.status == 0
+                                                      ? Colors.orange
+                                                      : e.status == 2
+                                                          ? Colors.purple
+                                                          : Colors.red),
                                           child: Text(
                                             e.status == 1
                                                 ? 'Diterima'
                                                 : e.status == 0
-                                                    ? 'Sedang diproses'
+                                                    ? 'Diproses'
                                                     : e.status == 2
                                                         ? 'Perbaikan'
-                                                        : 'Tolak',
+                                                        : 'Ditolak',
                                             style: TextStyle(
                                                 fontSize: Config().fontSizeTiny,
                                                 color:
@@ -152,7 +158,7 @@ class PenerimaItemWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              e.tahunAnggaran.toString(),
+                              e.tahunAnggaran ?? '',
                               style: TextStyle(
                                 fontSize: Config().fontSizeTiny,
                                 fontStyle: FontStyle.italic,
@@ -184,15 +190,21 @@ class PenerimaItemWidget extends StatelessWidget {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(
                                             Config().padding / 3),
-                                        color: Config().colorPrimary),
+                                        color: e.status == 1
+                                            ? Config().colorPrimary
+                                            : e.status == 0
+                                                ? Colors.orange
+                                                : e.status == 2
+                                                    ? Colors.purple
+                                                    : Colors.red),
                                     child: Text(
                                       e.status == 1
                                           ? 'Diterima'
                                           : e.status == 0
-                                              ? 'Sedang diproses'
+                                              ? 'Diproses'
                                               : e.status == 2
                                                   ? 'Perbaikan'
-                                                  : 'Tolak',
+                                                  : 'Ditolak',
                                       style: TextStyle(
                                           fontSize: Config().fontSizeTiny,
                                           color: Config().fontPrimaryWhite),

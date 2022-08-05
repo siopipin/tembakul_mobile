@@ -13,13 +13,14 @@ class MenuItemWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          padding: EdgeInsets.all(Config().padding + 2),
+          padding: EdgeInsets.all(Config().padding / 2),
           decoration: BoxDecoration(
               color: Config().colorSecondary,
               borderRadius: BorderRadius.circular(Config().padding / 2)),
           child: Icon(
             icon,
             color: Config().colorItem,
+            size: 40,
           ),
         ),
         Text(
