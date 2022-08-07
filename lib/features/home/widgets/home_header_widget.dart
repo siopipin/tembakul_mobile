@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tembakul_mobile/features/auth/login_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/login_logout_widget.dart';
 import 'package:tembakul_mobile/features/lokasi/lokasi_poktan.dart';
@@ -68,7 +67,7 @@ class _BannerHeaderWidgetState extends State<HomeHeaderWidget> {
             onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: ((context) => const LokasiPokTan()))),
+                    builder: ((context) => const LokasiPoktanScreen()))),
             child: TextField(
               textAlign: TextAlign.left,
               // controller: searchCtrl,

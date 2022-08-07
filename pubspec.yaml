@@ -24,10 +24,9 @@ dependencies:
   mime: ^1.0.1
   flutter_launcher_icons: "^0.9.2"
   
-  # map
-  flutter_map: any
-  # latlong: ^0.6.1
-  flutter_map_marker_cluster: any
+  #googlemap
+  google_maps_flutter: ^2.1.10
+  autocomplete_textfield: ^2.0.1
 
 
 dev_dependencies:

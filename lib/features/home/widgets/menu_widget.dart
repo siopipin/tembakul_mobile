@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tembakul_mobile/features/faq/faq_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_item_widget.dart';
@@ -84,7 +83,7 @@ class MenuWidget extends StatelessWidget {
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => const LokasiPokTan()))),
+                          builder: ((context) => const LokasiPoktanScreen()))),
                   child: const MenuItemWidget(
                     icon: Icons.location_on,
                     title: 'Lokasi\nPokTan',

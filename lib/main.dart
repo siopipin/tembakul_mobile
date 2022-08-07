@@ -6,6 +6,7 @@ import 'package:tembakul_mobile/features/auth/providers/register_provider.dart';
 import 'package:tembakul_mobile/features/faq/providers/faq_provider.dart';
 import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
+import 'package:tembakul_mobile/features/lokasi/providers/lokasi_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_detail_provider.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
@@ -28,6 +29,7 @@ void main() async {
     ChangeNotifierProvider(create: (_) => PerusahaanProvider()),
     ChangeNotifierProvider(create: (_) => UnggulanProvider()),
     ChangeNotifierProvider(create: (_) => FAQProvider()),
+    ChangeNotifierProvider(create: (_) => LokasiProvider()),
   ], child: const MyApp()));
 }
 
