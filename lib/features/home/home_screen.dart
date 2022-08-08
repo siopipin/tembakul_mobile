@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tembakul_mobile/features/about/about_screen.dart';
+import 'package:tembakul_mobile/features/home/dashboard_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/home_header_widget.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_widget.dart';
@@ -20,72 +22,47 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int? index;
+  List<Widget> itemHome = [const DashboardScreen(), AboutScreen()];
+
   @override
   void initState() {
     super.initState();
+    index = 0;
     Future.microtask(() {
       context.read<NewsTopProvider>().initial();
       context.read<HomeProvider>().initial();
     });
   }
 
+  changeIndex(val) {
+    setState(() {
+      index = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Scrollbar(
-        child: RefreshIndicator(
-            onRefresh: () async {
-              context.read<NewsTopProvider>().initial();
-              context.read<HomeProvider>().initial();
-            },
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                //header banner
-                const HomeHeaderWidget(),
-
-                //menu
-                SizedBox(height: Config().padding),
-                Padding(
-                  padding: EdgeInsets.only(left: Config().padding),
-                  child: const TitleSectionWidget(
-                    title: 'Menu',
-                    icon: Icons.api_sharp,
-                  ),
-                ),
-                const MenuWidget(),
-
-                //banner
-                const SlidesWidget(),
-
-                //news
-                SizedBox(height: Config().padding),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: Config().padding),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const TitleSectionWidget(
-                            title: "Berita", icon: Icons.newspaper),
-                        TextButton(
-                            onPressed: () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        const NewsAllScreen()))),
-                            child: Text(
-                              'Lihat Semua >',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: Config().fontSizeH3),
-                            ))
-                      ]),
-                ),
-
-                const NewsTopWidget()
-              ],
-            )),
+      body: itemHome[index!],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Call',
+          ),
+        ],
+        selectedItemColor: Config().colorItem,
+        unselectedItemColor: Colors.grey[200],
+        backgroundColor: Config().colorPrimary,
+        currentIndex: index!,
+        onTap: (index) {
+          changeIndex(index);
+        },
       ),
     );
   }
