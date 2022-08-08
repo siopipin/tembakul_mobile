@@ -71,8 +71,8 @@ class NewsItemWidget extends StatelessWidget {
               SizedBox(
                 height: Config().padding / 2,
               ),
-              Text(description.length > 80
-                  ? "${description.substring(0, 79)}..."
+              Text(description.length > 70
+                  ? "${description.substring(0, 69)}..."
                   : description)
             ]),
           ),

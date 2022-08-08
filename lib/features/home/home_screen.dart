@@ -3,8 +3,11 @@ import 'package:provider/provider.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/home/widgets/home_header_widget.dart';
 import 'package:tembakul_mobile/features/home/widgets/menu_widget.dart';
+import 'package:tembakul_mobile/features/news_slides/news_all.dart';
+import 'package:tembakul_mobile/features/news_slides/providers/news_top_provider.dart';
+import 'package:tembakul_mobile/features/news_slides/widgets/news_top_widget.dart';
 import 'package:tembakul_mobile/widgets/title_section_widget.dart';
-import 'package:tembakul_mobile/features/news_slides/news_widget.dart';
+import 'package:tembakul_mobile/features/news_slides/widgets/news_widget.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/slides_widget.dart';
 import 'package:tembakul_mobile/utils/config.dart';
@@ -21,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      context.read<NewsProvider>().initial();
+      context.read<NewsTopProvider>().initial();
       context.read<HomeProvider>().initial();
     });
   }
@@ -32,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Scrollbar(
         child: RefreshIndicator(
             onRefresh: () async {
-              context.read<NewsProvider>().initial();
+              context.read<NewsTopProvider>().initial();
               context.read<HomeProvider>().initial();
             },
             child: ListView(
@@ -58,12 +61,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 //news
                 SizedBox(height: Config().padding),
                 Padding(
-                  padding: EdgeInsets.only(left: Config().padding),
-                  child: const TitleSectionWidget(
-                      title: "Berita", icon: Icons.newspaper),
+                  padding: EdgeInsets.symmetric(horizontal: Config().padding),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const TitleSectionWidget(
+                            title: "Berita", icon: Icons.newspaper),
+                        TextButton(
+                            onPressed: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: ((context) =>
+                                        const NewsAllScreen()))),
+                            child: Text(
+                              'Lihat Semua >',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: Config().fontSizeH3),
+                            ))
+                      ]),
                 ),
 
-                const NewsWidget()
+                const NewsTopWidget()
               ],
             )),
       ),

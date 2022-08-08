@@ -8,6 +8,7 @@ import 'package:tembakul_mobile/features/home/home_screen.dart';
 import 'package:tembakul_mobile/features/home/providers/home_provider.dart';
 import 'package:tembakul_mobile/features/lokasi/providers/lokasi_provider.dart';
 import 'package:tembakul_mobile/features/news_slides/providers/news_provider.dart';
+import 'package:tembakul_mobile/features/news_slides/providers/news_top_provider.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_detail_provider.dart';
 import 'package:tembakul_mobile/features/penerima/providers/penerima_provider.dart';
 import 'package:tembakul_mobile/features/pengajuan/providers/pengajuan_providers.dart';
@@ -19,7 +20,11 @@ import 'package:tembakul_mobile/utils/global_provider.dart';
 void main() async {
   return runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => GlobalProvider()),
+
+    // news
     ChangeNotifierProvider(create: (_) => NewsProvider()),
+    ChangeNotifierProvider(create: (_) => NewsTopProvider()),
+
     ChangeNotifierProvider(create: (_) => LoginProvider()),
     ChangeNotifierProvider(create: (_) => RegisterProvider()),
     ChangeNotifierProvider(create: (_) => HomeProvider()),

@@ -43,17 +43,17 @@ class _SlidesWidgetState extends State<SlidesWidget> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: <Widget>[
-                SizedBox(width: Config().padding),
                 Row(
                   children: watchNew.dataNews.data!.map((e) {
                     return Row(
                       children: [
                         e.slides == 1
-                            ? SlidesItemWidget(url: e.img!)
+                            ? Padding(
+                                padding:
+                                    EdgeInsets.only(left: Config().padding / 2),
+                                child: SlidesItemWidget(url: e.img!),
+                              )
                             : Container(),
-                        SizedBox(
-                          width: Config().padding,
-                        )
                       ],
                     );
                   }).toList(),
