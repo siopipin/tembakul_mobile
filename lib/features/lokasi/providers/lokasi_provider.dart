@@ -52,6 +52,7 @@ class LokasiProvider extends ChangeNotifier {
       if (dataPenerima.data!.isNotEmpty) {
         for (var e in dataPenerima.data!) {
           if (e.status == 1) {
+            print(e.asalKelompokTani);
             markerList.add(Marker(
               markerId: MarkerId(e.id.toString()),
               position: LatLng(double.parse(e.lat), double.parse(e.latLong)),

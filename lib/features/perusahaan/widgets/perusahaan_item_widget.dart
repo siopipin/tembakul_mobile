@@ -64,6 +64,7 @@ class PerusahaanItemWidget extends StatelessWidget {
                           )));
                 },
                 child: Container(
+                  width: double.infinity,
                   padding: EdgeInsets.all(Config().padding),
                   margin: EdgeInsets.only(bottom: Config().padding - 6),
                   decoration: BoxDecoration(
@@ -75,21 +76,27 @@ class PerusahaanItemWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         //Detail
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              e.title ?? '-',
-                              style: TextStyle(
-                                fontSize: Config().fontSizeH2,
-                                fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                e.title ?? '-',
+                                style: TextStyle(
+                                  fontSize: Config().fontSizeH2,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: Config().padding / 2),
-                            Text(e.address ?? '-'),
-                          ],
+                              SizedBox(height: Config().padding / 2),
+                              Text(
+                                e.address ?? '-',
+                                overflow: TextOverflow.fade,
+                                maxLines: 1,
+                                softWrap: false,
+                              ),
+                            ],
+                          ),
                         ),
-
                         //Arrow detail
                         const Icon(Icons.arrow_forward_ios_rounded)
                       ]),

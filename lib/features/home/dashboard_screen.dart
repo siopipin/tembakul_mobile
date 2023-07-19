@@ -25,6 +25,7 @@ class DashboardScreen extends StatelessWidget {
             padding: EdgeInsets.zero,
             children: [
               //header banner
+              // const HomeHeaderWidget(),
               const HomeHeaderWidget(),
 
               //menu
@@ -37,6 +38,8 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
               const MenuWidget(),
+
+              // const MenuWidget(),
 
               //banner
               const SlidesWidget(),

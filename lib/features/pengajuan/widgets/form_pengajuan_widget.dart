@@ -21,15 +21,21 @@ class FormPengajuanWidget extends StatelessWidget {
             title: "Informasi", icon: Icons.person_pin_outlined),
         SizedBox(height: Config().padding),
         TextFieldCustomWidget(
-          textHint: "Nama",
+          textHint: "Nama Kelompok Tani",
+          ctrl: watchPengajuan.ctrlAsalPokTan,
+          icon: Icons.home_work,
+        ),
+        SizedBox(height: Config().padding / 2),
+        TextFieldCustomWidget(
+          textHint: "Nama Ketua Pengurus",
           ctrl: watchPengajuan.ctrlNama,
           icon: Icons.person_pin_circle_rounded,
         ),
         SizedBox(height: Config().padding / 2),
         TextFieldCustomWidget(
-          textHint: "Nama Kelompok Tani",
-          ctrl: watchPengajuan.ctrlAsalPokTan,
-          icon: Icons.home_work,
+          textHint: "Jumlah Anggota",
+          ctrl: watchPengajuan.ctrlJumlahAnggota,
+          icon: Icons.people,
         ),
         SizedBox(height: Config().padding / 2),
         TextFieldCustomWidget(
@@ -49,7 +55,8 @@ class FormPengajuanWidget extends StatelessWidget {
           ctrl: watchPengajuan.ctrlHP,
           icon: Icons.phone_android,
         ),
-        SizedBox(height: Config().padding / 2),
+        SizedBox(height: Config().padding / 2 + 6),
+        Text("Legalitas (Akta Pendirian / Terdaftar di SIMLUHTAN)"),
         Row(
           children: [
             ButtonWidget(
@@ -61,15 +68,48 @@ class FormPengajuanWidget extends StatelessWidget {
                     type: FileType.custom, allowedExtensions: ['pdf', 'doc']);
               },
             ),
-            Text(
+            Expanded(
+                child: Text(
               watchPengajuan.fileName.isEmpty
                   ? 'belum ada file terpilih..'
                   : "  ${watchPengajuan.fileName}",
               style: TextStyle(
                   fontSize: Config().fontSizeTiny, fontStyle: FontStyle.italic),
-            )
+            ))
           ],
         ),
+        SizedBox(height: Config().padding / 2 + 6),
+        Divider(),
+        Text("Proposal (PDF/JPG)"),
+        ButtonWidget(
+          text: watchPengajuan.fileName2.isEmpty ? 'Pilih File' : "Ganti File",
+          width: 150,
+          function: () async {
+            watchPengajuan.setFile2 = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['pdf', 'doc'],
+                allowMultiple: true);
+          },
+        ),
+        if (watchPengajuan.fileName2.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: List.generate(watchPengajuan.fileResult2.count, (index) {
+              var data = watchPengajuan.fileResult2.files[index];
+              return Row(
+                children: [
+                  SizedBox(width: 10),
+                  Icon(
+                    Icons.file_present_rounded,
+                    size: 13,
+                  ),
+                  Text(data.name)
+                ],
+              );
+            }).toList(),
+          )
+        else
+          Container(),
         SizedBox(height: Config().padding / 2),
         ButtonWidget(
           text: "Submit",
@@ -88,6 +128,7 @@ class FormPengajuanWidget extends StatelessWidget {
               await watchPengajuan.postPengajuan(
                 nama: watchPengajuan.ctrlNama.text,
                 asal: watchPengajuan.ctrlAsalPokTan.text,
+                jumlahAnggota: watchPengajuan.ctrlJumlahAnggota.text,
                 alamat: watchPengajuan.ctrlAddress.text,
                 email: watchPengajuan.ctrlEmail.text,
                 hp: watchPengajuan.ctrlHP.text,
@@ -95,6 +136,7 @@ class FormPengajuanWidget extends StatelessWidget {
             }
           },
         ),
+        SizedBox(height: 50),
       ],
     );
   }
